@@ -52,7 +52,8 @@ public class Steps {
     }
 
     @Then("^I see the list of buyers with their details$")
-    public void i_see_the_list_of_buyers_with_their_details() {
+    public void i_see_the_list_of_buyers_with_their_details() throws InterruptedException {
+        Thread.sleep(3000);
         assertTrue(buyersPage.hasElements());
     }
 
@@ -63,7 +64,8 @@ public class Steps {
     }
 
     @Then("^I see the list of items with their details$")
-    public void i_see_the_list_of_items_with_their_details() {
+    public void i_see_the_list_of_items_with_their_details() throws InterruptedException {
+        Thread.sleep(3000);
         assertTrue(itemsPage.hasElements());
     }
 
@@ -113,7 +115,7 @@ public class Steps {
                 .with()
                 .pollInterval(1, TimeUnit.SECONDS)
                 .until(() -> isNewPurchaseCommitted());
-
+        System.out.println("The purchase has been commited!");
         assertTrue(isNewPurchaseCommitted());
     }
 
@@ -125,6 +127,7 @@ public class Steps {
                 return true;
             }
         }
+        System.out.println("The purchase is not commited yet...");
         return false;
     }
 
