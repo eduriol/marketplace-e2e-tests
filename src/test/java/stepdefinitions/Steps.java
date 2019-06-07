@@ -115,7 +115,6 @@ public class Steps {
                 .with()
                 .pollInterval(1, TimeUnit.SECONDS)
                 .until(() -> isNewPurchaseCommitted());
-        System.out.println("The purchase has been commited!");
         assertTrue(isNewPurchaseCommitted());
     }
 
@@ -127,7 +126,6 @@ public class Steps {
                 return true;
             }
         }
-        System.out.println("The purchase is not commited yet...");
         return false;
     }
 
